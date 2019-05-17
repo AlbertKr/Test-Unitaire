@@ -15,4 +15,9 @@ class DBConnection
 		return true;
 	}
 
+	public function saveCredit($amount, $owner)
+	{
+		return true;
+	}
+
 }
