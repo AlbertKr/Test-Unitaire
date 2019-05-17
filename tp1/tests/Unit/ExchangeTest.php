@@ -98,8 +98,8 @@ class ExchangeTest extends TestCase
         $this->receiver = new User("albkras@test.com", "Albert", "Krasniqi", 17);
         $this->product = new Product("Bouteille", $this->owner);
 
-        $date_start = Carbon::createFromDate(2019, 5, 10);
-        $date_end = Carbon::createFromDate(2019, 5, 15);
+        $date_start = Carbon::createFromDate(2019, 5, 18);
+        $date_end = Carbon::createFromDate(2019, 5, 25);
 
         $dbConnection = $this->createMock(\App\DBConnection::class);
         $dbConnection->expects($this->any())->method("saveExchange")->willReturn(true);

@@ -22,14 +22,14 @@ class BankAccount {
 
     public function credit(int $credit){
         
-        if($this->owner->isValid() && $this->creditValid()){
+        if($this->owner->isValid() && $this->creditValid($credit)){
             
             $current_amount = $this->amount;
 
             $amountBalanceCredit = $this->defineNewBalance($credit);
 
             if($amountBalanceCredit['balanceAfterCredit'] - $current_amount != 0){
-                $this->emailSender->sendEmail($this->receiver->getEmail(), 'Account Credited');
+                $this->emailSender->sendEmail($this->owner->getEmail(), 'Account Credited');
             }
             
             return (object) array(
@@ -61,6 +61,11 @@ class BankAccount {
         
         return array('amountCredited' => $credit, 'balanceAfterCredit' => $this->amount);
     }
+
+    public function setAmount(Int $amount) {
+        $this->amount = $amount;
+    }
+
 }
 
 ?>
